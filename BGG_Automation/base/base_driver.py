@@ -5,7 +5,7 @@ from BGG_Automation.utils.locator_builder.locator_builder import Locator
 
 class Page:
     def __init__(self, driver):
-        self.__driver = driverdadadada
+        self.__driver = driver
 
     def send_keys(self, locator: Locator, value):
         self.__driver.find_element(locator.by, locator.value).send_keys(value)
