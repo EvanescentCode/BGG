@@ -40,7 +40,7 @@ class Page:
         wait = WebDriverWait(self.__driver, time)
         element = wait.until(ec.presence_of_element_located(locator))
         return element
-    #test
+    #test123
 
     def get_texts(self, locator: Locator) -> str:
         elements = self.__driver.find_elements(locator.by, locator.value)
