@@ -15,7 +15,7 @@ class Page:
 
     def submit(self, locator: Locator):
         self.__driver.find_element(locator.by, locator.value).submit()
-
+#123
     def refresh(self):
         self.__driver.refresh()
 
