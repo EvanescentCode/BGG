@@ -1,22 +1,12 @@
-from pytest import fixture
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service as ChromeService
+import softest
 from BGG_Automation.tests.common_path.common_path_bgg import CommonPathBgg
-import time
+import pytest
 
 
-class TestBgg:
-
-    @fixture(autouse=True)
-    def setup(self):
-        self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-        self.driver.get('https://boardgamegeek.com/')
-        self.driver.maximize_window()
-        self.driver.implicitly_wait(10)
-        yield
-        time.sleep(5)
-        self.driver.quit()
-
+class TestBgg(softest.TestCase):
+    @pytest.mark.usefixtures("setup")
     def test_bgg(self):
         CommonPathBgg(self.driver).test_browse_menu()
+
+    def __driver_mark(self, driver):  # Does nothing and do not touch
+        self.driver = driver
