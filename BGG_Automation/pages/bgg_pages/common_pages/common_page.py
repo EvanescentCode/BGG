@@ -1,9 +1,10 @@
+import allure
 from BGG_Automation.base.base_driver import Page
 from BGG_Automation.pages.bgg_pages.common_pages.common_locators import CommonPageLocators as Locs
 
 
 class CommonPage(Page):
-
+    @allure.step('Common')
     def fill_and_go_next(self):
         self.accept_cookies()
         self.browse_dropdown()
