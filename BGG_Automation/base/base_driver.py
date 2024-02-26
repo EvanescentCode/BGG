@@ -41,7 +41,6 @@ class Page:
         element = wait.until(ec.presence_of_element_located(locator))
         return element
 
-
     def get_texts(self, locator: Locator) -> str:
         elements = self.__driver.find_elements(locator.by, locator.value)
         texts = [element.text for element in elements]
