@@ -5,7 +5,7 @@ from BGG_Automation.utils.locator_builder.locator_builder import Locator
 
 class Page:
     def __init__(self, driver):
-        self.__driver = driverasa
+        self.__driver = driver
 
     def send_keys(self, locator: Locator, value):
         self.__driver.find_element(locator.by, locator.value).send_keys(value)
@@ -40,7 +40,6 @@ class Page:
         wait = WebDriverWait(self.__driver, time)
         element = wait.until(ec.presence_of_element_located(locator))
         return element
-
 
     def get_texts(self, locator: Locator) -> str:
         elements = self.__driver.find_elements(locator.by, locator.value)
