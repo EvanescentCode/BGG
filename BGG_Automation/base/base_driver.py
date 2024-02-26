@@ -55,3 +55,6 @@ class Page:
 
     def get_link(self, locator: Locator) -> str:
         return self.__driver.find_element(locator.by, locator.value).get_attribute("href")
+
+    def get_inner_html(self, locator: Locator) -> str:
+        return self.__driver.find_element(locator.by, locator.value).get_attribute("textContent")
