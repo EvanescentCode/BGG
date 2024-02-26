@@ -1,7 +1,6 @@
 from BGG_Automation.base.base_driver import Page
 from BGG_Automation.pages.bgg_pages.all_boardgames_page.all_boardgames_locators import AllBoardGamesPageLocators as Locs
 import allure
-import time
 
 
 class AllBoardsPage(Page):
@@ -26,3 +25,16 @@ class AllBoardsPage(Page):
                 print('\n')
             result_number += 100
             self.next_page_button(page_number + 2)
+            self.filter_digits()
+
+    def all_pages(self):
+        return self.find_element(Locs.last_page_number()).text
+
+    def filter_digits(self):
+        num = ''
+        for char in self.all_pages():
+            if char.isdigit():
+                num += char
+        return int(num)
+
+

@@ -18,3 +18,8 @@ class AllBoardGamesPageLocators:
         rating_results = LB.xpath(
             f'//div[@id="results_objectname{iteration_value}"]/../../td[@class="collection_bggrating"]')
         return rating_results
+
+    @staticmethod
+    def last_page_number():
+        last_page = LB.xpath('//a[@title="last page"]')
+        return last_page
