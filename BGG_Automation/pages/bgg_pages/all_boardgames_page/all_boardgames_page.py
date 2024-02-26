@@ -7,7 +7,6 @@ import time
 class AllBoardsPage(Page):
     @allure.step('1 step')
     def fill_and_go_next(self):
-        print(self.get_last_page())
         self.results(1)
 
     def next_page_button(self, page_number):
@@ -27,6 +26,3 @@ class AllBoardsPage(Page):
                 print('\n')
             result_number += 100
             self.next_page_button(page_number + 2)
-
-    def get_last_page(self):
-        self.get_inner_html(Locs.LAST_PAGE)
