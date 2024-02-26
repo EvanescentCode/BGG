@@ -2,6 +2,11 @@ from BGG_Automation.utils.locator_builder.locator_builder import LocatorBuilder 
 
 
 class AllBoardGamesPageLocators:
+    LAST_PAGE = LB.xpath('//div[@class="fr"]//a[@title="last page"]')
+
+    @staticmethod
+    def next_page_button(page_number):
+        return LB.css(f'div[class=fr] a[title="page {str(page_number)}"]')
 
     @staticmethod
     def results_name(iteration_value):
