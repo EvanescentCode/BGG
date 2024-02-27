@@ -6,7 +6,7 @@ import allure
 class AllBoardsPage(Page):
     @allure.step('1 step')
     def fill_and_go_next(self):
-        self.results(10)
+        self.results(1)
 
     def next_page_button(self, page_number):
         self.wait_until_element_clickable(Locs.next_page_button(page_number))
