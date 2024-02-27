@@ -1,7 +1,7 @@
 from BGG_Automation.utils.locator_builder.locator_builder import LocatorBuilder as LB
 
 
-class AllBoardGamesPageLocators:
+class AllBoardGamesLocators:
     LAST_PAGE = LB.xpath('//div[@class="fr"]//a[@title="last page"]')
 
     @staticmethod

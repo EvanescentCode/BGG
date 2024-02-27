@@ -1,12 +1,12 @@
 from BGG_Automation.base.base_driver import Page
-from BGG_Automation.pages.bgg_pages.all_boardgames_page.all_boardgames_locators import AllBoardGamesPageLocators as Locs
+from BGG_Automation.pages.bgg_pages.all_boardgames_page.all_boardgames_locators import AllBoardGamesLocators as Locs
 import allure
 
 
 class AllBoardsPage(Page):
     @allure.step('1 step')
     def fill_and_go_next(self):
-        self.results(1)
+        self.results(10)
 
     def next_page_button(self, page_number):
         self.wait_until_element_clickable(Locs.next_page_button(page_number))

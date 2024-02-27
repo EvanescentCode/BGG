@@ -9,7 +9,6 @@ class CommonPage(Page):
         self.accept_cookies()
         self.browse_dropdown()
         self.all_boardgames_button()
-        # self.privacy_accept()
 
     def browse_dropdown(self):
         self.wait_until_element_clickable(Locs.BROWSE_DROPDOWN)
