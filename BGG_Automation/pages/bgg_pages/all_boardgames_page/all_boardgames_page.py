@@ -8,25 +8,44 @@ import allure
 class AllBoardsPage(Page):
     @allure.step('1 step')
     def fill_and_go_next(self):
-        self.results(3)
+        self.results_logged_in(1)
 
     def next_page_button(self, page_number):
         self.wait_until_element_clickable(Locs.next_page_button(page_number))
 
-    def results(self, amount_of_pages):
+    # def results_not_logged_in(self, amount_of_pages):
+    #     game_data = []
+    #     result_number = 0
+    #     for page_number in range(amount_of_pages):
+    #         for iteration_value in range(1, 101):
+    #             game_data.append([iteration_value + result_number])
+    #             self.wait_until_element_located(Locs.results_name(iteration_value))
+    #             game_data[iteration_value + result_number - 1].append(
+    #                 self.get_texts(Locs.results_name(iteration_value)))
+    #             game_data[iteration_value + result_number - 1].append(self.get_link(Locs.results_name(iteration_value)))
+    #             rating_results = self.get_texts2(Locs.results_rating(iteration_value))
+    #             for i in range(3):
+    #                 game_data[iteration_value + result_number - 1].append(rating_results[i])
+    #         result_number += 100
+    #         self.next_page_button(page_number + 2)
+    #         # NumbersHandling.filter_digits(self.all_pages())
+    #         XlHandling.save_to_xl(game_data)
+
+    def results_logged_in(self, amount_of_pages):
         game_data = []
         result_number = 0
         for page_number in range(amount_of_pages):
-            for iteration_value in range(1, 101):
+            for iteration_value in range(1, 201, 2):
                 game_data.append([iteration_value + result_number])
                 self.wait_until_element_located(Locs.results_name(iteration_value))
                 game_data[iteration_value + result_number - 1].append(
                     self.get_texts(Locs.results_name(iteration_value)))
-                game_data[iteration_value + result_number - 1].append(self.get_link(Locs.results_name(iteration_value)))
-                rating_results = self.get_texts2(Locs.results_rating(iteration_value))
+                game_data[iteration_value + result_number - 1].append(
+                    self.get_link(Locs.results_name(iteration_value)))
+                rating_results = self.get_texts2(Locs.results_raing_logged_in(iteration_value))
                 for i in range(3):
                     game_data[iteration_value + result_number - 1].append(rating_results[i])
-            result_number += 100
+            result_number += 200
             self.next_page_button(page_number + 2)
             # NumbersHandling.filter_digits(self.all_pages())
             XlHandling.save_to_xl(game_data)

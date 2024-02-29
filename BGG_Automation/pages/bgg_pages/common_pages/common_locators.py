@@ -16,3 +16,4 @@ class CommonPageLocators:
     DESIGNERS_BUTTON = LB.xpath('//a[contains(text(), "Designers")]')
     RANDOM_GAME_BUTTON = LB.xpath('//a[contains(text(), "Random Game")]')
 
+
