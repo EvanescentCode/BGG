@@ -20,6 +20,12 @@ class AllBoardGamesLocators:
         return rating_results
 
     @staticmethod
+    def results_rating_logged_in(iteration_value):
+        rating_results = LB.xpath(
+            f'//td[@id="CEcell_rating{iteration_value}"]/..//td[@class="collection_bggrating"]')
+        return rating_results
+
+    @staticmethod
     def last_page_number():
         last_page = LB.xpath('//a[@title="last page"]')
         return last_page

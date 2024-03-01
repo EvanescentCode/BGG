@@ -12,3 +12,4 @@ class TestBgg(softest.TestCase):
 
     def __driver_mark(self, driver):  # Does nothing and do not touch
         self.driver = driver
+

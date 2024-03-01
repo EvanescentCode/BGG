@@ -41,7 +41,7 @@ class Page:
         element = wait.until(ec.presence_of_element_located(locator))
         return element
 
-    def get_texts(self, locator: Locator) -> str:
+    def get_texts(self, locator: Locator):
         elements = self.__driver.find_elements(locator.by, locator.value)
         texts = [element.text for element in elements]
         joined_texts = ' '.join(texts)
@@ -53,8 +53,8 @@ class Page:
         joined_texts = ' '.join(texts)
         return texts
 
-    def get_link(self, locator: Locator) -> str:
+    def get_link(self, locator: Locator):
         return self.__driver.find_element(locator.by, locator.value).get_attribute("href")
 
-    def get_inner_html(self, locator: Locator) -> str:
+    def get_inner_html(self, locator: Locator):
         return self.__driver.find_element(locator.by, locator.value).get_attribute("textContent")
