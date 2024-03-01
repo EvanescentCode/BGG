@@ -20,7 +20,7 @@ class AllBoardGamesLocators:
         return rating_results
 
     @staticmethod
-    def results_raing_logged_in(iteration_value):
+    def results_rating_logged_in(iteration_value):
         rating_results = LB.xpath(
             f'//td[@id="CEcell_rating{iteration_value}"]/..//td[@class="collection_bggrating"]')
         return rating_results

@@ -42,7 +42,7 @@ class AllBoardsPage(Page):
                     self.get_texts(Locs.results_name(iteration_value)))
                 game_data[iteration_value + result_number - 1].append(
                     self.get_link(Locs.results_name(iteration_value)))
-                rating_results = self.get_texts2(Locs.results_raing_logged_in(iteration_value))
+                rating_results = self.get_texts2(Locs.results_rating_logged_in(iteration_value))
                 for i in range(3):
                     game_data[iteration_value + result_number - 1].append(rating_results[i])
             result_number += 200
