@@ -38,13 +38,14 @@ class AllBoardsPage(Page):
             for iteration_value in range(1, 201, 2):
                 game_data.append([iteration_value + result_number])
                 self.wait_until_element_located(Locs.results_name(iteration_value))
-                game_data[iteration_value + result_number - 1].append(
+                game_data_iv = int((iteration_value + result_number - 1) / 2)
+                game_data[game_data_iv].append(
                     self.get_texts(Locs.results_name(iteration_value)))
-                game_data[iteration_value + result_number - 1].append(
+                game_data[game_data_iv].append(
                     self.get_link(Locs.results_name(iteration_value)))
                 rating_results = self.get_texts2(Locs.results_rating_logged_in(iteration_value))
                 for i in range(3):
-                    game_data[iteration_value + result_number - 1].append(rating_results[i])
+                    game_data[game_data_iv].append(rating_results[i])
             result_number += 200
             self.next_page_button(page_number + 2)
             # NumbersHandling.filter_digits(self.all_pages())
