@@ -5,10 +5,13 @@ Code will automate gathering data from BGG - which is site containing boardgames
 # Setup:
 
 requirements.txt
+Reader.md
 
 # Allure Commands:
 
 * Creating test and report files: pytest --alluredir="./BGG_Automation/reports"
 * Raport Creation: BGG_Automation\reports
+
+
 
 
