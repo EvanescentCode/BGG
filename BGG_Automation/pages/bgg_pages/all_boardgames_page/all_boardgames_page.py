@@ -1,14 +1,14 @@
 from BGG_Automation.base.base_driver import Page
 from BGG_Automation.pages.bgg_pages.all_boardgames_page.all_boardgames_locators import AllBoardGamesLocators as Locs
-from BGG_Automation.utils.string_handling.numbers_handling import NumbersHandling
 from BGG_Automation.utils.excel_handling.save_to_xl import SaveToXl as XlHandling
+from BGG_Automation.utils.logger.logger import Logger
 import allure
 
 
 class AllBoardsPage(Page):
     @allure.step('1 step')
     def fill_and_go_next(self):
-        self.results_logged_in(1)
+        self.save_results()
 
     def next_page_button(self, page_number):
         self.wait_until_element_clickable(Locs.next_page_button(page_number))
@@ -49,7 +49,11 @@ class AllBoardsPage(Page):
             result_number += 200
             self.next_page_button(page_number + 2)
             # NumbersHandling.filter_digits(self.all_pages())
-            XlHandling.save_ranking_to_xl(game_data)
+            return game_data
+
+    def save_results(self):
+        XlHandling.save_ranking_to_xl(self.results_logged_in(1))
+        Logger.log().info('saved game data to Excel')
 
     def all_pages(self):
         return self.find_element(Locs.last_page_number()).text
