@@ -49,7 +49,7 @@ class AllBoardsPage(Page):
             result_number += 200
             self.next_page_button(page_number + 2)
             # NumbersHandling.filter_digits(self.all_pages())
-            XlHandling.save_to_xl(game_data)
+            XlHandling.save_ranking_to_xl(game_data)
 
     def all_pages(self):
         return self.find_element(Locs.last_page_number()).text

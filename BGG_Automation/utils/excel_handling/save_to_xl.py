@@ -4,7 +4,7 @@ from openpyxl.reader.excel import load_workbook
 
 class SaveToXl:
     @staticmethod
-    def save_to_xl(data):
+    def save_ranking_to_xl(data):
         data_path = r'..\..\data\data.xlsx'
         df = pd.DataFrame(data, columns=['Rank', 'Title', 'Link', 'Geek Rating', 'Avg Rating', 'Num Voters'])
         today_date = pd.Timestamp.today().strftime(' %d.%m.%y %H-%M')
