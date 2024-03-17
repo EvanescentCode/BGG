@@ -36,7 +36,7 @@ class AllBoardsPage(Page):
         result_number = 0
         for page_number in range(amount_of_pages):
             for iteration_value in range(1, 201, 2):
-                game_data.append([iteration_value + result_number])
+                game_data.append([int((iteration_value + result_number) / 2 + 1)])
                 self.wait_until_element_located(Locs.results_name(iteration_value))
                 game_data_iv = int((iteration_value + result_number - 1) / 2)
                 game_data[game_data_iv].append(
